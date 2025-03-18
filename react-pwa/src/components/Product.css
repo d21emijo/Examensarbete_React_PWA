@@ -1,0 +1,17 @@
+.category {
+  margin-bottom: 20px;
+}
+
+.products-container {
+  display: flex; 
+  gap: 15px; 
+  justify-content: center; 
+}
+
+.product {
+  background-color: #857777;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100px; 
+  text-align: center;
+}
