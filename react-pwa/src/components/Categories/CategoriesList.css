@@ -6,6 +6,7 @@
     padding: 10px;
   }
   
+  
   .categories-container {
     display: block;
     flex-wrap: wrap;
@@ -16,7 +17,6 @@
     
   }
 
-  
   .category {
     width: 100%;
     height: 30%;
