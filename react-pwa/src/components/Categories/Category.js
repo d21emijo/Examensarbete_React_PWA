@@ -1,6 +1,6 @@
 import React from "react";
-import Product from "../Products"; // Importera produkten
-import "./Category.css"; // Frivillig styling
+import Product from "../Products"; // används ej
+import "./Category.css"; 
 
 
 const Category = ({ title, products }) => {
