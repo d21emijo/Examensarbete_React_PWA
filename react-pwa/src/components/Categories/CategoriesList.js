@@ -17,7 +17,7 @@ const CategoryList = () => {
   const [puffers, setPuffers] = useState([]); // State för att lagra puffs
   
   const itemsPerSection = 3; // Antal produkter per sektion
-  const maxSections = 5;      // Hur många sektioner som ska visas per kategori
+  const maxSections = 50;      // Hur många sektioner som ska visas per kategori
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -75,8 +75,8 @@ const CategoryList = () => {
   
 
   const categories = [
-    { name: "shoes", displayName: "Skor", sections: splitIntoSections(shoes, itemsPerSection,maxSections) },
     { name: "jackets", displayName: "Jackor", sections: splitIntoSections(jackets, itemsPerSection,maxSections) },
+    { name: "shoes", displayName: "Skor", sections: splitIntoSections(shoes, itemsPerSection,maxSections) },
     { name: "pants", displayName: "Byxor", sections: splitIntoSections(pants, itemsPerSection,maxSections) },
     { name: "puffer", displayName: "fluffare", sections: splitIntoSections(puffers, itemsPerSection,maxSections) },  ];
 

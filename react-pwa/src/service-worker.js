@@ -7,11 +7,11 @@
 // You can also remove this file if you'd prefer not to use a
 // service worker, and the Workbox build step will be skipped.
 
+// import { StaleWhileRevalidate} from 'workbox-strategies';
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate} from 'workbox-strategies';
 import { CacheFirst } from 'workbox-strategies';
 import {CacheableResponsePlugin} from 'workbox-cacheable-response';
 
@@ -23,9 +23,11 @@ clientsClaim();
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
 //test här
-precacheAndRoute([
-  { url: '/manifest.json', revision: null }
-]);
+
+// precacheAndRoute([
+//   { url: '/manifest.json', revision: null }
+// ]);
+
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -62,7 +64,7 @@ registerRoute(
         statuses: [0, 200], // 0 krävs för CORS
       }),
       new ExpirationPlugin({
-        maxEntries: 10, // Max antal bilder i cache
+        maxEntries: 0, // Max antal bilder i cache
         maxAgeSeconds: 7 * 24 * 60 * 60, // Sparas i en vecka
       }),
     ],
