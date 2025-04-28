@@ -19,34 +19,26 @@ const CategoryList = () => {
   const itemsPerSection = 3; // Antal produkter per sektion
   const maxSections = 50;      // Hur många sektioner som ska visas per kategori
 
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/products");
-        if (!response.ok) throw new Error("Något gick fel vid hämtning av data");
-  
-        const data = await response.json();
-        console.log("Data hämtad från nätverket:", data);
-  
-        // Cachea datan lokalt för offline-användning
-        const cache = await caches.open("products");
-        await cache.put("/products", new Response(JSON.stringify(data)));
-  
-        updateProducts(data);
-      } catch (error) {
-        console.error("Fel vid hämtning av data, försöker från cache:", error);
-  
-        // Försök att hämta från cache istället
-        const cache = await caches.open("products");
-        const cachedResponse = await cache.match("/products");
+        const cache = await caches.open("products-cache");
+        const cachedResponse = await cache.match("http://localhost:5000/products");
   
         if (cachedResponse) {
           const cachedData = await cachedResponse.json();
           console.log("Data hämtad från cachen:", cachedData);
           updateProducts(cachedData);
         } else {
-          console.error("Ingen cache-data tillgänglig");
+          const response = await fetch("http://localhost:5000/products");
+          if (!response.ok) throw new Error("Något gick fel vid hämtning av data");
+          const data = await response.json();
+          console.log("Data hämtad från nätverket:", data);
+          updateProducts(data);
         }
+      } catch (error) {
+        console.error("Fel vid hämtning från cache och nätverk:", error);
       }
     };
   

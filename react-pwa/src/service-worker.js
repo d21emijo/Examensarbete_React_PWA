@@ -71,6 +71,12 @@ registerRoute(
   })
 );
 
+registerRoute(
+  ({url}) => url.pathname === '/products',
+  new CacheFirst({
+    cacheName: 'products-cache',
+  })
+);
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
