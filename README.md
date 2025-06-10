@@ -64,11 +64,14 @@ Make sure that the service worker is running in devtools application:
 ![image](https://github.com/user-attachments/assets/1797c7e4-a80e-48b6-b35c-a170bb0d7cd5)
 
 and that cache is used:
+
 ![image](https://github.com/user-attachments/assets/1c9be015-65f6-4b0e-9ea8-c637e7707937)
 
 service worker used for the fetch:
+
 ![image](https://github.com/user-attachments/assets/7b987076-1312-459d-bf59-c8964e6df44d)
 
 this will make it work online, aswell as offline:
+
 ![image](https://github.com/user-attachments/assets/e10025a5-f0ed-418d-b085-643f7c62c17d)
 
